@@ -6,6 +6,8 @@ async `localStorage` like API to a page hosted on a common domain in a hidden if
 
 Using this library you can store data client side and access it from any domain. 
 
+`bower install xdm-store`
+
 ## Setup
 
 You will need to store the `src/remote.html` page on a domain which you have
