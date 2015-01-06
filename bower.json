@@ -1,0 +1,22 @@
+{
+  "name": "xdmStore",
+  "version": "0.1.0",
+  "homepage": "https://github.com/treasonx/xdmStore",
+  "authors": [
+    "James Morrin <treasonx@gmail.com>"
+  ],
+  "description": "Cross domain persistent clientside storage library",
+  "main": "src/xdmSore.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
