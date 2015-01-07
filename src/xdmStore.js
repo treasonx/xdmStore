@@ -103,13 +103,12 @@
 
       }
     };
-
   }
+
+  g.xdmStore = factory();
 
   if (typeof define === 'function' && define.amd) {
     define(factory);
-  } else {
-    g.xdmStore = factory();
   }
 
 }(this));
