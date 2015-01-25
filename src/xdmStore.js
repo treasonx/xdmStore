@@ -3,6 +3,7 @@
   var stores = {};
   var id = 0;
   var pendingCommands = {};
+  var PTRN = /^(http|https)/;
 
   g.addEventListener('message', function (evt) {
     var resp = evt.data;
@@ -67,6 +68,10 @@
         };
 
         pendingCommands[command.id] = cb;
+
+        if(!PTRN.test(url)) {
+          url = '*';
+        }
 
         receiver.postMessage(command, url);
       }
