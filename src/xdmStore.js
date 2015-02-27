@@ -4,10 +4,18 @@
   var id = 0;
   var pendingCommands = {};
   var PTRN = /^(http|https)/;
+  var noop = function () {};
 
   g.addEventListener('message', function (evt) {
     var resp = evt.data;
-    var cb = pendingCommands[resp.id] || function(){};
+    var cb;
+
+    try {
+      resp = JSON.parse(evt.data);
+      cb = pendingCommands[resp.id] || noop;
+    } catch (e) {
+      return;
+    }
 
     delete pendingCommands[resp.id];
 
@@ -73,7 +81,7 @@
           url = '*';
         }
 
-        receiver.postMessage(command, url);
+        receiver.postMessage(JSON.stringify(command), url);
       }
 
       store = {
@@ -85,7 +93,7 @@
         },
         removeItem: function (key, cb) {
           makeCall('removeItem', [key], cb);
-        },
+        }
       };
 
       store[url] = store;
